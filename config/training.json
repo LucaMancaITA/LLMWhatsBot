@@ -1,0 +1,25 @@
+{
+    "datadir": "./data",
+    "users": {
+        "user1": "",
+        "user2": ""
+    },
+    "llm": {
+        "base_model_id": "",
+        "peft_model_id": ""
+    },
+    "training": {
+        "lora": {
+            "r": 4,
+            "lora_alpha": 32,
+            "lora_dropout": 0.05
+        },
+        "tokenizer_max_length": 512,
+        "learning_rate": 2e-4,
+        "max_steps": 50,
+        "per_device_train_batch_size": 8,
+        "gradient_accumulation_steps": 4,
+        "warmup_steps": 2
+    },
+    "output_model_name": "output_llama"
+}
