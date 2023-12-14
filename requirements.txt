@@ -6,3 +6,4 @@ peft==0.7.1.dev0
 accelerate==0.25.0.dev0
 datasets==2.15.0
 sentencepiece==0.1.99
+tensorboard==2.15.1
