@@ -5,8 +5,8 @@
         "user2": ""
     },
     "llm": {
-        "base_model_id": "linhvu/decapoda-research-llama-7b-hf",
-        "peft_model_id": "andreabac3/Open_Fauno-Italian-LLM-7bB"
+        "base_model_id": "",
+        "peft_model_id": ""
     },
     "training": {
         "lora": {

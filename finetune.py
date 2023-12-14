@@ -38,9 +38,12 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.bfloat16
 )
 
+# Load the tokenizer
 tokenizer = LlamaTokenizer.from_pretrained(
     base_model_id,
     token=HUGGING_FACE_API_KEY)
+
+# Load the base model
 model = LlamaForCausalLM.from_pretrained(
     base_model_id,
     quantization_config=bnb_config,
@@ -48,12 +51,12 @@ model = LlamaForCausalLM.from_pretrained(
     token=HUGGING_FACE_API_KEY
 )
 
-# TODO: at the moment loading and unloading the peft models is useless
+# Load the peft model
 peft_model = PeftModel.from_pretrained(
     model, peft_model_id, token=HUGGING_FACE_API_KEY)
 
 # Prepare model for kbit training
-original_model = peft_model.unload()
+original_model = peft_model.merge_and_unload()
 model.gradient_checkpointing_enable()
 kbit_model = prepare_model_for_kbit_training(original_model)
 
